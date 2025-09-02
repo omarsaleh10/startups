@@ -1,5 +1,5 @@
 import { defineQuery } from "next-sanity";
-export const startups_query=defineQuery(`*[_type == "startup"]| order(createdAt desc) {
+export const STARTUPS_QUERY=defineQuery(`*[_type == "startup"]| order(createdAt desc) {
     _id,
     title,
     description,
