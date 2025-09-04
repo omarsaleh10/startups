@@ -51,7 +51,7 @@ export default async function Navbar() {
 
               {/* Profile */}
               <Link
-                href="/profile"
+                href={`/profile/${(session as any)?.id}`}
                 className="flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-2 text-sm font-medium text-neutral-700 shadow-sm transition-all hover:bg-neutral-100"
               >
                 <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-tr from-black via-neutral-800 to-neutral-600 text-xs font-semibold text-white shadow-sm">

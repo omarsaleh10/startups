@@ -55,18 +55,18 @@ export function StartupCard({ startup }: { startup: any }) {
                     <div className="flex-1">
                         {/* Author Name */}
                         <div className="flex items-center gap-2 mb-2">
-                            <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-pink-200">
-                                <Link href={`/author/${startup.author._id}`}>
-                                <img 
-                                    src={startup.author.image} 
-                                    alt={startup.author.name} 
-                                    width={32} 
-                                    height={32} 
-                                    className="w-full h-full object-cover"
-                                />
-                                </Link>
-                            </div>
-                            <p className="text-gray-600 text-sm font-medium">{startup.author.name}</p>
+                            <Link href={`/profile/${startup.author._id}`} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                                <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-pink-200">
+                                    <img 
+                                        src={startup.author.image} 
+                                        alt={startup.author.name} 
+                                        width={32} 
+                                        height={32} 
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <p className="text-gray-600 text-sm font-medium hover:text-gray-800 transition-colors">{startup.author.name}</p>
+                            </Link>
                         </div>
                         
                         {/* Project Title */}

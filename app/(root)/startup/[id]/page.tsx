@@ -103,7 +103,7 @@ export default async function StartupPage({ params }: { params: { id: string } }
                 {/* Author Section */}
                 <div className="bg-white rounded-2xl p-6 mb-8 shadow-lg">
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
+                        <Link href={`/profile/${startup.author?._id}`} className="flex items-center gap-4 hover:opacity-80 transition-opacity">
                             <div className="w-16 h-16 bg-gray-300 rounded-full flex items-center justify-center">
                                 {startup.author?.image ? (
                                     <img 
@@ -120,12 +120,12 @@ export default async function StartupPage({ params }: { params: { id: string } }
                                 )}
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-gray-900">
+                                <h3 className="text-xl font-bold text-gray-900 hover:text-gray-700 transition-colors">
                                     {startup.author?.name} - {startup.title}
                                 </h3>
                                 <p className="text-gray-600">@{startup.author?.username}</p>
                             </div>
-                        </div>
+                        </Link>
                         <button className="bg-pink-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-pink-600 transition-colors">
                             {startup.category}
                         </button>
