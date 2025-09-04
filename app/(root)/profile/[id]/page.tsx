@@ -9,8 +9,9 @@ interface AuthorProfilePageProps {
 }
 
 export default async function AuthorProfilePage({ params }: AuthorProfilePageProps) {
-  const author = await client.fetch(AUTHOR_BY_ID_QUERY, { id: params.id });
-  const startups = await client.fetch(STARTUPS_BY_AUTHOR_QUERY, { authorId: params.id });
+  const { id } = await params;
+  const author = await client.fetch(AUTHOR_BY_ID_QUERY, { id });
+  const startups = await client.fetch(STARTUPS_BY_AUTHOR_QUERY, { authorId: id });
 
   if (!author) {
     notFound();

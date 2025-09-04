@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 import 'easymde/dist/easymde.min.css'
+import PageTransition from "@/app/components/page-transition";
 
 const workSans = localFont({
   src: [
@@ -65,6 +66,7 @@ export default function RootLayout({
       <body
         className={`${workSans.variable}`}
       >
+        <PageTransition />
         {children}
       </body>
     </html>
