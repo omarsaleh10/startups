@@ -18,7 +18,7 @@ export default async function AuthorProfilePage({ params }: AuthorProfilePagePro
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-orange-50 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-orange-50 p-6 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Panel - User Profile Card */}
@@ -78,10 +78,10 @@ export default async function AuthorProfilePage({ params }: AuthorProfilePagePro
           <div className="lg:w-2/3">
             {/* Section Header */}
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              <h2 className="text-3xl font-bold text-gray-900 mb-2 dark:text-white">
                 My Startups
               </h2>
-              <p className="text-gray-600 text-lg">
+              <p className="text-gray-600 text-lg dark:text-gray-300">
                 All the innovative ideas and projects I've created
               </p>
             </div>
@@ -94,18 +94,18 @@ export default async function AuthorProfilePage({ params }: AuthorProfilePagePro
                 ))}
               </div>
             ) : (
-              <div className="text-center py-16 bg-white rounded-3xl shadow-lg">
+                             <div className="text-center py-16 bg-white rounded-3xl shadow-lg dark:bg-gray-800 dark:shadow-gray-900/50">
                 <div className="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
                   <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                  No Startups Yet
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  {author.name} hasn't created any startups yet. Check back later!
-                </p>
+                                 <h3 className="text-2xl font-semibold text-gray-900 mb-2 dark:text-white">
+                   No Startups Yet
+                 </h3>
+                 <p className="text-gray-600 mb-6 dark:text-gray-300">
+                   {author.name} hasn't created any startups yet. Check back later!
+                 </p>
                 <Link
                   href="/"
                   className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-orange-500 text-white px-6 py-3 rounded-full font-semibold hover:from-pink-600 hover:to-orange-600 transition-all duration-300"

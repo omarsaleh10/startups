@@ -92,12 +92,12 @@ export default function StartupForm(){
     }, [showToast]);
    
     return (
-        <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-orange-50 py-12 px-4">
+        <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-orange-50 py-12 px-4 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
             {/* Toast Notification */}
             {showToast && (
                 <div className={`fixed top-4 right-4 z-50 max-w-sm w-full bg-white rounded-lg shadow-lg border-l-4 ${
                     toastType === "success" ? "border-green-500" : "border-red-500"
-                } transform transition-all duration-300 ease-in-out`}>
+                } transform transition-all duration-300 ease-in-out dark:bg-gray-800 dark:shadow-gray-900/50`}>
                     <div className="p-4">
                         <div className="flex items-start">
                             <div className="flex-shrink-0">
@@ -112,11 +112,11 @@ export default function StartupForm(){
                                 )}
                             </div>
                             <div className="ml-3 w-0 flex-1">
-                                <p className={`text-sm font-medium ${
-                                    toastType === "success" ? "text-green-800" : "text-red-800"
-                                }`}>
-                                    {toastMessage}
-                                </p>
+                                                                    <p className={`text-sm font-medium ${
+                                        toastType === "success" ? "text-green-800" : "text-red-800"
+                                    } dark:text-white`}>
+                                        {toastMessage}
+                                    </p>
                             </div>
                             <div className="ml-4 flex-shrink-0 flex">
                                 <button
@@ -136,18 +136,18 @@ export default function StartupForm(){
 
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-8">
-                    <h1 className="text-5xl font-bold text-gray-900 mb-3">Submit Your Startup</h1>
-                    <p className="text-gray-600 text-xl">Share your innovative idea with the world</p>
+                    <h1 className="text-5xl font-bold text-gray-900 mb-3 dark:text-white">Submit Your Startup</h1>
+                    <p className="text-gray-600 text-xl dark:text-gray-300">Share your innovative idea with the world</p>
                 </div>
                 
-                <form action={formAction} className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100" onSubmit={(e) => {
+                <form action={formAction} className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900/50" onSubmit={(e) => {
                     console.log("Form submitted!");
                     console.log("Form action triggered");
                 }}>
                     <div className="space-y-6"> 
                         <div className="space-y-4">
                             <div>
-                                <label htmlFor="title" className="block text-base font-semibold text-gray-700 mb-2 text-xl">Startup Title</label>
+                                <label htmlFor="title" className="block text-base font-semibold text-gray-700 mb-2 text-xl dark:text-gray-200">Startup Title</label>
                                 <input 
                                     type="text" 
                                     id="title" 
@@ -158,18 +158,18 @@ export default function StartupForm(){
                             </div>
                             
                             <div>
-                                <label htmlFor="description" className="block text-base font-semibold text-gray-700 mb-2 text-xl">Short Description</label>
+                                <label htmlFor="description" className="block text-base font-semibold text-gray-700 mb-2 text-xl dark:text-gray-200">Short Description</label>
                                 <textarea 
                                     id="description" 
                                     name="description" 
                                     placeholder="Brief overview of your startup idea"
                                     rows={3}
-                                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-pink-500 focus:ring-4 focus:ring-pink-100 transition-all duration-200 resize-none text-base" 
+                                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-pink-500 focus:ring-4 focus:ring-pink-100 transition-all duration-200 resize-none text-base dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-pink-400" 
                                 />
                             </div>
                             
                             <div>
-                                <label htmlFor="category" className="block text-base font-semibold text-gray-700 mb-2 text-xl">Category</label>
+                                <label htmlFor="category" className="block text-base font-semibold text-gray-700 mb-2 text-xl dark:text-gray-200">Category</label>
                                 <select 
                                     id="category" 
                                     name="category" 
@@ -187,7 +187,7 @@ export default function StartupForm(){
                             </div>
                             
                             <div>
-                                <label htmlFor="link" className="block text-base font-semibold text-gray-700 mb-2 text-xl">Image Link</label>
+                                <label htmlFor="link" className="block text-base font-semibold text-gray-700 mb-2 text-xl dark:text-gray-200">Image Link</label>
                                 <input 
                                     type="url" 
                                     id="link" 
@@ -197,8 +197,8 @@ export default function StartupForm(){
                                 />
                             </div>
                             
-                            <div data-color-mode="light">
-                                <label htmlFor="pitch" className="block text-base font-semibold text-gray-700 mb-2 text-xl ">Pitch Details</label>
+                            <div data-color-mode="light" className="dark:data-color-mode-dark">
+                                <label htmlFor="pitch" className="block text-base font-semibold text-gray-700 mb-2 text-xl dark:text-gray-200">Pitch Details</label>
                                <MDEditor 
                                value={pitch}
                                onChange={(value)=>setPitch(value || "")}
@@ -207,6 +207,7 @@ export default function StartupForm(){
                                height={400}
                                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-pink-500 focus:ring-4 focus:ring-pink-100 transition-all duration-200 text-base"
                                data-color-mode="light"
+                               data-color-mode-dark="dark"
                                data-hide-card={true}
                                style={{borderRadius: "10px"}}
                                />

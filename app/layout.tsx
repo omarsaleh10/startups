@@ -4,6 +4,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 import 'easymde/dist/easymde.min.css'
 import PageTransition from "@/app/components/page-transition";
+import { ThemeProvider } from "@/app/contexts/theme-context";
 
 const workSans = localFont({
   src: [
@@ -66,8 +67,10 @@ export default function RootLayout({
       <body
         className={`${workSans.variable}`}
       >
-        <PageTransition />
-        {children}
+        <ThemeProvider>
+          <PageTransition />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

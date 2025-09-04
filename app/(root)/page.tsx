@@ -11,7 +11,7 @@ export default async function Home({
 }) {
   const session = await auth();
   return (
-    <main>
+    <main className="dark:bg-gray-900">
       <Hero/>
       <Cards searchParams={searchParams}/>
     </main>

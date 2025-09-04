@@ -2,7 +2,7 @@
 
 export default function Loading() {
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-pink-50 via-white to-orange-50 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-gradient-to-br from-pink-50 via-white to-orange-50 z-50 flex items-center justify-center dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="relative">
         {/* Main loading circle */}
         <div className="w-16 h-16 border-4 border-pink-200 rounded-full animate-spin">
@@ -15,7 +15,7 @@ export default function Loading() {
         
         {/* Loading text */}
         <div className="mt-6 text-center">
-          <p className="text-gray-600 font-semibold text-lg">Loading...</p>
+          <p className="text-gray-600 font-semibold text-lg dark:text-gray-300">Loading...</p>
           <div className="flex justify-center mt-2 space-x-1">
             <div className="w-2 h-2 bg-pink-500 rounded-full animate-bounce"></div>
             <div className="w-2 h-2 bg-orange-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>

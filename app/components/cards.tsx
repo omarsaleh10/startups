@@ -12,7 +12,7 @@ interface CardsProps {
 // Reusable card component
 export function StartupCard({ startup }: { startup: any }) {
     return (
-        <div key={startup._id} className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 border-gray-100 overflow-hidden relative">
+        <div key={startup._id} className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 border-gray-100 overflow-hidden relative dark:bg-gray-800 dark:border-gray-700">
             {/* Gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-pink-50/0 to-purple-50/0 group-hover:from-pink-50/30 group-hover:to-purple-50/30 transition-all duration-500 pointer-events-none"></div>
             
@@ -65,17 +65,17 @@ export function StartupCard({ startup }: { startup: any }) {
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
-                                <p className="text-gray-600 text-sm font-medium hover:text-gray-800 transition-colors">{startup.author.name}</p>
+                                <p className="text-gray-600 text-sm font-medium hover:text-gray-800 transition-colors dark:text-gray-300 dark:hover:text-gray-200">{startup.author.name}</p>
                             </Link>
                         </div>
                         
                         {/* Project Title */}
-                        <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-gray-800 transition-colors">
+                        <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-gray-800 transition-colors dark:text-white dark:group-hover:text-gray-200">
                             {startup.title}
                         </h3>
                         
                         {/* Project Description */}
-                        <p className="text-gray-600 text-sm leading-relaxed line-clamp-2 mb-4">
+                        <p className="text-gray-600 text-sm leading-relaxed line-clamp-2 mb-4 dark:text-gray-300">
                             {startup.description}
                         </p>
                     </div>
@@ -84,7 +84,7 @@ export function StartupCard({ startup }: { startup: any }) {
                 {/* Bottom Section */}
                 <div className="flex justify-between items-center">
                     {/* Category Badge */}
-                    <div className="text-black font-bold">
+                    <div className="text-black font-bold dark:text-white">
                         {startup.category}
                     </div>
                     
@@ -128,7 +128,7 @@ export default async function Cards({ searchParams }: CardsProps) {
                 {/* Show message if no results found */}
                 {currentQuery && filteredPosts.length === 0 && (
                     <div className="text-center mb-8">
-                        <p className="text-gray-600 text-lg">
+                        <p className="text-gray-600 text-lg dark:text-gray-400">
                             No startups found matching "{currentQuery}"
                         </p>
                     </div>

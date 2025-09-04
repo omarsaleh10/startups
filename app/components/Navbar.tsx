@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { auth, signOut, signIn } from "@/auth";
+import ThemeToggle from "./theme-toggle";
 
 export default async function Navbar() {
   const session = await auth();
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/60 shadow-md">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/60 shadow-md dark:bg-gray-900/80 dark:supports-[backdrop-filter]:bg-gray-900/60 dark:shadow-gray-900/20">
       <nav className="flex items-center justify-between px-6 py-4 w-full">
         {/* Logo - positioned at far left */}
         <Link href="/" className="inline-flex items-center gap-2 group">
@@ -22,12 +23,15 @@ export default async function Navbar() {
 
         {/* Right side - positioned at far right */}
         <div className="flex items-center gap-4 ml-auto">
+          {/* Theme Toggle */}
+          <ThemeToggle />
+          
           {session?.user ? (
             <>
               {/* New startup button */}
               <Link
                 href="/startup/create"
-                className="inline-flex items-center rounded-full bg-black px-5 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-neutral-800 hover:shadow-md active:scale-95"
+                className="inline-flex items-center rounded-full bg-black px-5 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-neutral-800 hover:shadow-md active:scale-95 dark:bg-white dark:text-black dark:hover:bg-gray-100"
               >
                 New Startup
               </Link>
@@ -43,7 +47,7 @@ export default async function Navbar() {
                 <button
                   type="submit"
                   aria-label="Logout"
-                  className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-5 py-2 text-sm font-medium text-neutral-700 shadow-sm transition-all hover:bg-neutral-100 hover:text-neutral-900 active:scale-95"
+                  className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-5 py-2 text-sm font-medium text-neutral-700 shadow-sm transition-all hover:bg-neutral-100 hover:text-neutral-900 active:scale-95 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700"
                 >
                   Logout
                 </button>
@@ -52,7 +56,7 @@ export default async function Navbar() {
               {/* Profile */}
               <Link
                 href={`/profile/${(session as any)?.id}`}
-                className="flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-2 text-sm font-medium text-neutral-700 shadow-sm transition-all hover:bg-neutral-100"
+                className="flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-2 text-sm font-medium text-neutral-700 shadow-sm transition-all hover:bg-neutral-100 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700"
               >
                 <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-tr from-black via-neutral-800 to-neutral-600 text-xs font-semibold text-white shadow-sm">
                   {session?.user?.name?.charAt(0)?.toUpperCase() ?? "U"}
@@ -72,7 +76,7 @@ export default async function Navbar() {
               <button
                 type="submit"
                 aria-label="Login with GitHub"
-                className="inline-flex items-center rounded-full bg-black px-5 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-neutral-800 hover:shadow-md active:scale-95"
+                className="inline-flex items-center rounded-full bg-black px-5 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-neutral-800 hover:shadow-md active:scale-95 dark:bg-white dark:text-black dark:hover:bg-gray-100"
               >
                 Login
               </button>

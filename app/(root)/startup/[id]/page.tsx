@@ -37,7 +37,7 @@ export default async function StartupPage({ params }: { params: { id: string } }
     };
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             {/* Header Section */}
             <div className="bg-pink-500 relative overflow-hidden">
                 {/* Orange vertical stripes pattern */}
@@ -80,7 +80,7 @@ export default async function StartupPage({ params }: { params: { id: string } }
             {/* Main Content Area */}
             <div className="max-w-6xl mx-auto px-6 py-12">
                 {/* Startup Image Card */}
-                <div className="bg-white rounded-2xl p-8 mb-8 shadow-lg">
+                <div className="bg-white rounded-2xl p-8 mb-8 shadow-lg dark:bg-gray-800 dark:shadow-gray-900/50">
                     {startup.image ? (
                         <div className="w-full flex justify-center">
                             <img 
@@ -92,8 +92,8 @@ export default async function StartupPage({ params }: { params: { id: string } }
                             />
                         </div>
                     ) : (
-                        <div className="w-full max-w-[1110px] h-[583px] bg-gray-300 rounded-lg flex items-center justify-center mx-auto">
-                            <span className="text-gray-600 font-bold text-4xl">
+                        <div className="w-full max-w-[1110px] h-[583px] bg-gray-300 rounded-lg flex items-center justify-center mx-auto dark:bg-gray-700">
+                            <span className="text-gray-600 font-bold text-4xl dark:text-gray-300">
                                 {startup.title.charAt(0).toUpperCase()}
                             </span>
                         </div>
@@ -101,10 +101,10 @@ export default async function StartupPage({ params }: { params: { id: string } }
                 </div>
 
                 {/* Author Section */}
-                <div className="bg-white rounded-2xl p-6 mb-8 shadow-lg">
+                <div className="bg-white rounded-2xl p-6 mb-8 shadow-lg dark:bg-gray-800 dark:shadow-gray-900/50">
                     <div className="flex items-center justify-between">
                         <Link href={`/profile/${startup.author?._id}`} className="flex items-center gap-4 hover:opacity-80 transition-opacity">
-                            <div className="w-16 h-16 bg-gray-300 rounded-full flex items-center justify-center">
+                            <div className="w-16 h-16 bg-gray-300 rounded-full flex items-center justify-center dark:bg-gray-700">
                                 {startup.author?.image ? (
                                     <img 
                                         src={startup.author.image} 
@@ -114,16 +114,16 @@ export default async function StartupPage({ params }: { params: { id: string } }
                                         className="rounded-full"
                                     />
                                 ) : (
-                                    <span className="text-gray-600 font-bold text-xl">
+                                    <span className="text-gray-600 font-bold text-xl dark:text-gray-300">
                                         {startup.author?.name?.charAt(0).toUpperCase()}
                                     </span>
                                 )}
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-gray-900 hover:text-gray-700 transition-colors">
+                                <h3 className="text-xl font-bold text-gray-900 hover:text-gray-700 transition-colors dark:text-white dark:hover:text-gray-200">
                                     {startup.author?.name} - {startup.title}
                                 </h3>
-                                <p className="text-gray-600">@{startup.author?.username}</p>
+                                <p className="text-gray-600 dark:text-gray-300">@{startup.author?.username}</p>
                             </div>
                         </Link>
                         <button className="bg-pink-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-pink-600 transition-colors">
@@ -133,15 +133,15 @@ export default async function StartupPage({ params }: { params: { id: string } }
                 </div>
 
                 {/* Pitch Details */}
-                <div className="bg-white rounded-2xl p-8 mb-8 shadow-lg">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-6">Pitch details</h3>
-                    <div className="text-gray-700 leading-relaxed space-y-4 text-lg">
+                <div className="bg-white rounded-2xl p-8 mb-8 shadow-lg dark:bg-gray-800 dark:shadow-gray-900/50">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:text-white">Pitch details</h3>
+                    <div className="text-gray-700 leading-relaxed space-y-4 text-lg dark:text-gray-300">
                         {startup.pitch ? (
                             <div className="whitespace-pre-wrap font-medium">
                                 <div dangerouslySetInnerHTML={{ __html: markdown }} />
                             </div>
                         ) : (
-                            <p className="text-gray-700 leading-relaxed text-lg">
+                            <p className="text-gray-700 leading-relaxed text-lg dark:text-gray-300">
                                 {startup.description}
                             </p>
                         )}
@@ -149,8 +149,8 @@ export default async function StartupPage({ params }: { params: { id: string } }
                 </div>
 
                 {/* Similar Startups */}
-                <div className="bg-white rounded-2xl p-8 shadow-lg">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-6">Similar startups</h3>
+                <div className="bg-white rounded-2xl p-8 shadow-lg dark:bg-gray-800 dark:shadow-gray-900/50">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-6 dark:text-white">Similar startups</h3>
                     {similarStartups.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {similarStartups.map((similarStartup: any) => (
@@ -159,7 +159,7 @@ export default async function StartupPage({ params }: { params: { id: string } }
                         </div>
                     ) : (
                         <div className="text-center py-8">
-                            <p className="text-gray-600 text-lg">
+                            <p className="text-gray-600 text-lg dark:text-gray-300">
                                 No similar startups found in the same category.
                             </p>
                         </div>

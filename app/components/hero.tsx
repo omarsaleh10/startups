@@ -56,7 +56,7 @@ export default function Hero() {
       
     </section>
     <section className="w-full max-w-3xl mt-6 text-center">
-          <p className="text-black text-3xl font-bold">
+          <p className="text-black text-3xl font-bold dark:text-white">
             {currentQuery ? `Searching for: ${currentQuery}` : "All startups"}
           </p>
         </section>

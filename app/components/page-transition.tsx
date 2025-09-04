@@ -21,7 +21,7 @@ export default function PageTransition() {
   if (!isTransitioning) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-gradient-to-br from-pink-50 via-white to-orange-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 bg-gradient-to-br from-pink-50 via-white to-orange-50 flex items-center justify-center dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="text-center">
         {/* Animated logo or brand */}
         <div className="mb-6">
@@ -38,7 +38,7 @@ export default function PageTransition() {
         </div>
         
         {/* Loading text */}
-        <p className="text-gray-600 font-medium">Loading page...</p>
+        <p className="text-gray-600 font-medium dark:text-gray-300">Loading page...</p>
       </div>
     </div>
   );
